@@ -1,0 +1,14 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        
+        hashMap = {")":"(", "]":"[","}":"{"}
+        stack =[]
+        for i in s:
+            if i in hashMap and stack and stack[-1]==hashMap[i]:
+                stack.pop()
+            else:
+                stack.append(i)
+        if not stack:
+            return True
+        else:
+            return False
